@@ -1,0 +1,28 @@
+
+.error {
+  background-color: lightgrey;
+  color: red;
+  border: 2px solid red;
+  border-radius: 10px;
+  width: 25vw;
+  height: 2rem;
+  margin: 2rem 0 2rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.success {
+  background-color: lightgrey;
+  color: green;
+  border: 2px solid green;
+  border-radius: 10px;
+  width: 25vw;
+  height: 2rem;
+  margin: 2rem 0 2rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
