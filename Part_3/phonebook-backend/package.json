@@ -6,9 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js", 
+    "build:ui": "rm -rf build && cd ../../Part_2/phonebook/ && npm run build --prod && cp -r build ../phonebook-backend",
+    "deploy": "git push heroku main",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",    
+    "logs:prod": "heroku logs --tail"
   },
-  "author": "",
+  "proxy": "http://localhost:3001",
+  "author": "Ethan Shook",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

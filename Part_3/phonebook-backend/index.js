@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const app = express()
 app.use(express.json())
+app.use(express.static('build'))
 
 //SET MORGAN OUTPUT
 morgan.token('data', (request, response) => {
@@ -80,7 +81,6 @@ app.get('/api/contacts/:id', (request, response) => {
   if(contact) {
     response.json(contact)
   } else {
-    console.log("FUk")
     response.status(404).end()
   }
 })
@@ -92,11 +92,11 @@ app.get('/api/contacts', (request, response) => {
 app.delete('/api/contacts/:id', (request, response) => {
   const id = Number(request.params.id)
   contacts = contacts.filter(contact => contact.id !== id)
-
   response.status(204).end()
 })
 
 app.post('/api/contacts', (request, response) => {
+  console.log(request.headers)
   let body = request.body
   let err = false
   let errArr = []
